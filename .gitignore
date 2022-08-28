@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+env/
+db.sqlite3
+dukenv/
+media/
+staticfiles/
+scripts.py
