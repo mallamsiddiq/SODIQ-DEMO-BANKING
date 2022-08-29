@@ -20,7 +20,7 @@ So right in this root directory you can make a call to the module Objects: User 
 
 all transactions extend from the base Transaction class i created.
 
-I also created to custom errors both extends base Extension
+I also created two custom errors both extends built-in python Extension
 
 	LowBalanceError
 	'''Raise if a balance-required event is called on insufficient balance account'''
@@ -30,7 +30,7 @@ I also created to custom errors both extends base Extension
 
 ## TESTING 
 
-I have written unittest that covers edge corner case
+I have written unittest that covers edge corner cases
 
 in the root directory simply run
 
