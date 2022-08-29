@@ -6,3 +6,5 @@ myenv/
 media/
 staticfiles/
 scripts.py
+
+setup.cfg
