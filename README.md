@@ -1,10 +1,10 @@
-# dOc
+# dOc [please, Read ME]
 
 ### the MOCK BACKEND FOR A PEER TO PEER PAYMENT API
 
-### Over view
+### Overview
 
-i have created a mock simulation of the banking backiend logic, one you can interact with via python console. 
+I have created a mock simulation of the banking backend logic, one you can interact with via python console. 
 
 So right in this root directory you can make a call to the module Objects: User from users.py and [ Transfer, Debit, CheckBalance, Deposit] from transaction.py with the following signatures for instantiation:
 
@@ -18,12 +18,12 @@ So right in this root directory you can make a call to the module Objects: User 
 
 	User(self, fullname, balance = 0 ):
 
-all transactions extends from the base Transaction class i created.
+all transactions extend from the base Transaction class i created.
 
 I also created to custom errors both extends base Extension
 
 	LowBalanceError
-	'''Raise if a balasnce-required event is called on insufficient balance account'''
+	'''Raise if a balance-required event is called on insufficient balance account'''
 
 	RecipientError
 		'''Raise if a recipient-needed event is called with no or wrong recipient'''
@@ -56,7 +56,7 @@ initiating four users
 	>>> user3 = user('mark')
 	>>> user4 = user('mark', 45)
 
-user1 requesting a debit transactins
+user1 requesting a debit transactions
 
 	>>> trans1 = transactions.Debit(user1, 90)
 	>>> trans1.debit()
@@ -131,7 +131,7 @@ user1 now transfer $15 to the rest user and $10 separate to user3
 	>>> trans9.transfer()
 		'SUCCESS'
 
-I have written more unnit test to further cover more edge cases
+I have written more unit test to further cover more edge cases
 
 
 thanks 
@@ -140,3 +140,4 @@ SODIQ
 
 
 further complaints to @mallasiddiq@gmail.com
+
