@@ -3,8 +3,41 @@
 
 ### Over view
 
-	
+i have created a mock simulation of the banking backiend logic, one you can interact with via python console. 
 
+So right in this root directory you can make a call to the module Objects: User from users.py and [ Transfer, Debit, CheckBalance, Deposit] from transaction.py with the following signatures for instantiation:
+
+	Transfer(self, sender, amount, *recipients):
+
+	Deposit(self, account, amount):
+
+	Debit(self, account, amount):
+
+	CheckBalance( self, account):
+
+	User(self, fullname, balance = 0 ):
+
+all transactions extends from the base Transaction class i created.
+
+I also created to custom errors both extends base Extension
+
+	LowBalanceError
+	'''Raise if a balasnce-required event is called on insufficient balance account'''
+
+	RecipientError
+		'''Raise if a recipient-needed event is called with no or wrong recipient'''
+
+## TESTING 
+
+I have written unittest that covers edge corner case
+
+in the root directory simply run
+
+	python -m unittest		
+
+### Interacting with VIA python console
+
+see below how i did a little simulation of the logics
 
 	>>> import users
 	>>> import transactions
@@ -22,7 +55,7 @@ initiating four users
 	>>> user3 = user('mark')
 	>>> user4 = user('mark', 45)
 
-creating transactins for trying out an see results
+user1 requesting a debit transactins
 
 	>>> trans1 = transactions.Debit(user1, 90)
 	>>> trans1.debit()
@@ -30,12 +63,12 @@ creating transactins for trying out an see results
 	>>> user1.balance
 	40
 
-user3 gets $0 balance by default
+user3 gets $0 balance by default since no balance provided at creation
 
 	>>> user3.balance
 	0
 
-performing debit again after low balance
+user1 performing debit again after low balance
 
 	>>> trans2 = transactions.Debit(user1, 190)
 	>>> trans2.debit()
@@ -45,7 +78,7 @@ performing debit again after low balance
 	    raise LowBalanceError(f"{self.account}'s balance is not enough for this Transaction")
 	errors.LowBalanceError: mark - None's balance is not enough for this Transaction
 
-alse performing bulk transfer on low balance:
+also performing bulk transfer on low balance from user1 to user 2 - 4
 
 	>>> trans3 = transactions.Transfer(user1, 100, user2, user3, user4)
 	>>> trans3.transfer()
@@ -86,9 +119,23 @@ user1 make a deposit 0f $30 and check his balance
 	>>> trans8.checkbalance()
 		70
 
+
+user1 now transfer $15 to the rest user and $10 separate to user3 
+
+	>>> trans8 = transactions.Transfer(user1, 15, user2, user3, user4)
+	>>> trans8.transfer()
+		'SUCCESS'
+
+	>>> trans9 = transactions.Transfer(user1, 15, user3)
+	>>> trans9.transfer()
+		'SUCCESS'
+
 I have written more unnit test to further cover more edge cases
 
 
 thanks 
 
 SODIQ
+
+
+further complaints to @mallasiddiq@gmail.com
