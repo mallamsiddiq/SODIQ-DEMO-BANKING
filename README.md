@@ -139,5 +139,5 @@ thanks
 SODIQ
 
 
-further complaints to @mallasiddiq@gmail.com
+further complaints to @mallamsiddiq@gmail.com
 
